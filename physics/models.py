@@ -9,3 +9,7 @@ class Task(models.Model):
     
     def __str__(self):
         return(f"{self.id}{self.section}")
+    
+""" class Quiz(models.Model):
+    img = models.ImageField()
+    result = models.IntegerField() """

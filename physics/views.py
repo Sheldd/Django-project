@@ -16,11 +16,12 @@ def quiz(request):
     return HttpResponse(template.render(context,request))
 
 
-def result(request):
+def result(request, score):
     tasks = Task.objects.all().values()
     template = loader.get_template('result.html')
     context = {
         'tasks':tasks,
+        'score':score,
     }
     return HttpResponse(template.render(context,request))
   
