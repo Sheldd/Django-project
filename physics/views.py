@@ -7,7 +7,8 @@ def homepage(request):
     return HttpResponse(template.render())
 
 def quiz(request):
-    return HttpResponse("Hello world!")
+    template = loader.get_template('quiz.html')
+    return HttpResponse(template.render())
     
 
 # Create your views here.

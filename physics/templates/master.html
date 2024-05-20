@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-ru">
 <head>
   <title>{% block title %}{% endblock %}</title>
   <meta charset="utf-8">
@@ -12,12 +12,16 @@
 
 <div class="container-fluid  bg-secondary  text-white ">
   <ul class="nav">
-    <li class="nav-item">
+    <div class="btn-group btn-group-lg">
+        <a href='/' type="button" class="btn btn-secondary">Home</a>
+        <a href='/quiz' class="btn btn-secondary">Quiz</a>
+      </div>
+    {% comment %} <li class="nav-item">
       <a class="nav-link link-light" href="/">HOME</a>
     </li>
     <li class="nav-item">
       <a class="nav-link link-light" href="/quiz">Quiz</a>
-    </li>
+    </li> {% endcomment %}
   </ul>
 </div>
   {% block content %}
