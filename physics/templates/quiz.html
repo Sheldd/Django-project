@@ -1,5 +1,40 @@
 {% extends "master.html" %}
 
 {% block content%}
-привет
+<div class="container-fluid p-3 bg-success text-white text-center">
+    <h1>Удачи</h1>
+</div>
+
+    
+    {%for task in tasks%}
+       
+        <div class="container bg-success text-white p-2 mt-5">
+            <div class=" text-white text-center">
+                <h4> Раздел {{task.section}}</h4>
+            </div>
+            <div class="input mt-3">
+                <div class='container p-2'>
+                 {{task.task}}
+                </div>
+                <input type="text" id="4" class="form-control" placeholder="Введите ответ">
+            </div>   
+        </div>  
+    {% endfor %}
+
+    <div class='container text-white p-5  text-center'>
+        <button onclick="calculate()" class="btn btn-success">Начать проверку</button>
+    </div>
+    
+{% comment %} <div id="resulting"></div> {% endcomment %}
+<div id="5"><div>
+<script>
+function calculate(){
+    document.getElementById("5").innerHTML ="10";
+    f = '/result/300';
+    location.href=f;
+}
+
+
+</script>
+
 {%endblock%}
