@@ -5,7 +5,11 @@
         <h1>Удачи</h1>
     </div>
 
+    {% comment %} 
+    Для того чтобы открывалось в новой вкладке то пишем
     <form action="result/" target="_blank" method="POST">
+    {% endcomment %}
+    <form action="result/"  method="POST">
         {% csrf_token %}
 
         {% for task in tasks %}

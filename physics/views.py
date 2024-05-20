@@ -4,9 +4,7 @@ from django.template import loader
 from .models import Task
 
 
-#from django.template import RequestContext
-from django.http import HttpResponseRedirect
-#from django.core.context_processors import csrf
+
 
 from django.views.decorators.csrf import csrf_protect, csrf_exempt
 
@@ -30,10 +28,14 @@ def result(request):
         tasks = Task.objects.all().values()
         score = 0
         for task in tasks:
-            ans = request.POST.get('id')
-            if ans == task['answer']:
+            rs = task['id']
+            ans = request.POST.get(f'{rs}')
+            #print(ans, task['answer'])
+            
+            if str(ans) == str(task['answer']):
                 score+=1
         template = loader.get_template('result.html')
+        
         context = {
             'score':score,
         }
