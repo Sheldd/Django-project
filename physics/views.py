@@ -13,13 +13,25 @@ def homepage(request):
     template = loader.get_template('homepage.html')
     return HttpResponse(template.render())
 
+@csrf_exempt
 def quiz(request):
-    tasks = Task.objects.all().values()
-    template = loader.get_template('quiz.html')
-    context = {
-        'tasks':tasks,
-    }
-    return HttpResponse(template.render(context,request))
+    if request.method == 'POST':
+        uname = request.POST.get('uname')
+        tasks = Task.objects.all().values()
+        template = loader.get_template('quiz.html')
+        context = {
+            'tasks':tasks,
+            'uname':uname,
+        }
+        return HttpResponse(template.render(context,request))
+    else :
+        tasks = Task.objects.all().values()
+        template = loader.get_template('quiz.html')
+        context = {
+            'tasks':tasks,
+        }
+        return HttpResponse(template.render(context,request))
+        
 
 @csrf_exempt
 def result(request):
@@ -27,10 +39,11 @@ def result(request):
     if request.method == 'POST':
         tasks = Task.objects.all().values()
         score = 0
+        #uname = str(request.POST.get('uname'))
         for task in tasks:
             rs = task['id']
             ans = request.POST.get(f'{rs}')
-            #print(ans, task['answer'])
+            print(ans, task['answer'])
             
             if str(ans) == str(task['answer']):
                 score+=1
@@ -38,6 +51,7 @@ def result(request):
         
         context = {
             'score':score,
+            #'uname':uname,
         }
         return HttpResponse(template.render(context,request))
     

@@ -7,8 +7,17 @@
 
 {%block content%}
 <div class="container-fluid p-3 bg-success text-white text-center">
-  <h1>Ваш Балл {{score}}</h1>
-  <p></p> 
+{% comment %}   <h1>Поздравляю {{uname}}</h1> {% endcomment %}
+{% if score > 5 and score <= 8%}
+<h1>Поздравляю !!!</h1>
+{% elif score <= 5 and score >= 0  %}
+<h1>Попробуй еще раз)</h1>
+{% else %}
+<div class="container-fluid p-3 bg-success text-white text-center">
+    Что-то пошло не так
+</div>
+{% endif %}
+  <p>Ваш Балл {{score}}</p> 
 </div>
 
 <div class="container-fluid mt-5">

@@ -20,7 +20,23 @@
     <div class="col-sm-5">
       <h3>Реши тест и узнай какой ты физик!</h3>
       <p>Многие люди пытались пройти этот тест и, возможно, именно ты тот избранный :)</p>
-      <a href="/quiz" class="btn btn-success">Начать проверку</a>
+      
+      <form action="quiz/"  method="POST">
+        {% csrf_token %}
+
+        <div class="row was-validate">
+          <div class="col-sm-6">
+            <input type="text" class="form-control" id="uname" placeholder="Введите свое имя" name="uname" required>
+            <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback">Please fill out this field.</div>
+          </div>
+          <div class="col-sm-6">
+            <button type="submit" class="btn btn-success">Начать проверку</button>
+          </div>
+        </div>
+      </form>
+      
+    
     </div>
   </div>
 </div>

@@ -2,7 +2,7 @@
 
 {% block content %}
     <div class="container-fluid p-3 bg-success text-white text-center">
-        <h1>Удачи</h1>
+        <h1>Удачи {{uname}}</h1>
     </div>
 
     {% comment %} 
@@ -23,6 +23,7 @@
                 </div>
                 <input type="text" id="{{ task.id }}" name="{{ task.id }}" class="form-control task-answer-input"
                 placeholder="Введите ответ">
+                {% comment %} <div id="{{uname}}" name="{{uname}}"></div> {% endcomment %}
             </div>
         </div>
         {% endfor %}
