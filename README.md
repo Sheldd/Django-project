@@ -47,7 +47,7 @@
 
 2) Клонировать репозиторий:
 
-        git clone https://github.com/Sheldd/Django-project
+        git clone https://github.com/Sheldd/Django-project.git
    
 3) Установить зависимости (запустить внутри директории Django-project) :
 
